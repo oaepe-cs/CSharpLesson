@@ -1,0 +1,5 @@
+D:\SpringCSharp\Week1\Week1\Week1\bin\Debug\Week1.exe
+D:\SpringCSharp\Week1\Week1\Week1\bin\Debug\Week1.pdb
+D:\SpringCSharp\Week1\Week1\Week1\obj\x86\Debug\Week1.exe
+D:\SpringCSharp\Week1\Week1\Week1\obj\x86\Debug\Week1.pdb
+D:\SpringCSharp\Week1\Week1\Week1\obj\x86\Debug\Week1.csprojResolveAssemblyReference.cache

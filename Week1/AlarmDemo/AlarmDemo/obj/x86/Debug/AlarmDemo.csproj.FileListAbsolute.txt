@@ -1,0 +1,4 @@
+D:\SpringCSharp\Week1\AlarmDemo\AlarmDemo\bin\Debug\AlarmDemo.exe
+D:\SpringCSharp\Week1\AlarmDemo\AlarmDemo\bin\Debug\AlarmDemo.pdb
+D:\SpringCSharp\Week1\AlarmDemo\AlarmDemo\obj\x86\Debug\AlarmDemo.exe
+D:\SpringCSharp\Week1\AlarmDemo\AlarmDemo\obj\x86\Debug\AlarmDemo.pdb

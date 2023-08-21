@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmDemo", "AlarmDemo\AlarmDemo.csproj", "{5328CF57-6879-48B1-B3F9-84322D9A64AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5328CF57-6879-48B1-B3F9-84322D9A64AC}.Debug|x86.ActiveCfg = Debug|x86
+		{5328CF57-6879-48B1-B3F9-84322D9A64AC}.Debug|x86.Build.0 = Debug|x86
+		{5328CF57-6879-48B1-B3F9-84322D9A64AC}.Release|x86.ActiveCfg = Release|x86
+		{5328CF57-6879-48B1-B3F9-84322D9A64AC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
