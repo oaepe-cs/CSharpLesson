@@ -2,3 +2,7 @@ D:\SpringCSharp\Week2\bin\Debug\Week2.exe
 D:\SpringCSharp\Week2\bin\Debug\Week2.pdb
 D:\SpringCSharp\Week2\obj\x86\Debug\Week2.exe
 D:\SpringCSharp\Week2\obj\x86\Debug\Week2.pdb
+D:\SpringCSharp\CSharpLesson\Week2\obj\x86\Debug\Week2.exe
+D:\SpringCSharp\CSharpLesson\Week2\obj\x86\Debug\Week2.pdb
+D:\SpringCSharp\CSharpLesson\Week2\bin\Debug\Week2.exe
+D:\SpringCSharp\CSharpLesson\Week2\bin\Debug\Week2.pdb
