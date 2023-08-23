@@ -13,7 +13,8 @@ namespace Week2
             //Implicit Conversion
             int num1 = int.MaxValue;
             uint unum1 = Convert.ToUInt32(num1);
-
+            long lnum1 = Convert.ToInt32(num1);
+            Console.WriteLine(lnum1);
 
             byte b1 = 255;
             byte b2 = 10;
@@ -29,11 +30,12 @@ namespace Week2
             Console.WriteLine("double: " + fNum1);
 
             //Explicit Conversion
-            double doubleA = 20.00;
+            double doubleA = 20.50;
             int intA = Convert.ToInt32(doubleA);
             Console.WriteLine("doubleA " + doubleA);
             Console.WriteLine("intA " + intA);
 
+            Console.ReadLine();
             int expConvertTestInt1 = 10;
             byte expConvertTestByte1 = Convert.ToByte(expConvertTestInt1);
             Console.WriteLine("expConvertTestInt1: " + expConvertTestInt1);

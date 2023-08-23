@@ -44,7 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypeConversion.cs" />
+    <Compile Include="DataTypeConversion2.cs" />
+    <Compile Include="EnumType.cs" />
     <Compile Include="Exercise1.cs" />
+    <Compile Include="Exercise2.cs" />
+    <Compile Include="NullableType.cs" />
     <Compile Include="Operators.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

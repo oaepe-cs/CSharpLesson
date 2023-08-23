@@ -53,7 +53,19 @@ namespace Week2
             Console.WriteLine("Decrement (--)");
             Console.WriteLine(result);
             Console.WriteLine("After decremet, Temp Result: "+ tempResult);
-                        
+            
+
+            //Order of precedence (*/, +-) 
+            //left to right
+            //()
+            Console.WriteLine("Order of precedence (*/, +-)");
+            int sum = (5 - 10) * (3 + 20);
+            Console.WriteLine(sum);
+
+
+
+
+
             Console.ReadLine();
         }
     }

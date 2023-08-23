@@ -7,7 +7,7 @@ namespace Week2
 {
     class Exercise1
     {
-        static void Main()
+        static void Main3()
         {
             ////Add two numbers from user
             //Console.WriteLine("Please type Number 1.");
