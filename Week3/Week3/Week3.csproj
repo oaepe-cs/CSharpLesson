@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditionalType.cs" />
     <Compile Include="ArrayType.cs" />
     <Compile Include="ClassTypeandInterfaceType.cs" />
+    <Compile Include="ConditionalStatementExercise.cs" />
+    <Compile Include="ConditionalStatements.cs" />
     <Compile Include="DelegateType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

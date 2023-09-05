@@ -7,7 +7,7 @@ namespace Week3
 {
     class AdditionalType
     {
-        static void Main()
+        static void AdditionalTypeMain()
         {
             //var
             int x  = 10;
