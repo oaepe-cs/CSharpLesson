@@ -7,7 +7,7 @@ namespace Week3
 {
     class ConditionalStatements
     {
-        static void Main()
+        static void ConditionalStatementsMain()
         {
             bool tfFound = true;
             string num1 = "Mg Mg";
