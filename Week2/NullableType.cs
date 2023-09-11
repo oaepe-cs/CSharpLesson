@@ -29,6 +29,13 @@ namespace Week2
             bool? isExisted = null;
             Console.ReadLine();
             
+            //Nullable Type Info
+            string str = null;
+            int? numOne = null;
+            numOne = 10;
+            Nullable<int> numTwo = null;
+            numTwo = 20;
+            //
 
         }
     }
