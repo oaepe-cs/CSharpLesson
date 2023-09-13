@@ -23,6 +23,7 @@ namespace Week4
             Show(25, "Mg Mg");
 
             Show("Ko Ko", 30);
+
             Console.ReadLine();
         }
 
