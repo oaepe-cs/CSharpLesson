@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BreakKeywords.cs" />
     <Compile Include="ForLoop.cs" />
+    <Compile Include="MethodOptionalParameters.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WhileLoop.cs" />
