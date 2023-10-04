@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week6", "Week6\Week6.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateTwoNubers", "CalculateTwoNubers\CalculateTwoNubers.csproj", "{60A8D5C2-68C1-411C-B9E6-98AFCC5FA8ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectOrientedIntroduction", "ObjectOrientedIntroduction\ObjectOrientedIntroduction.csproj", "{81AFCA4D-5267-4693-9B8B-1C3334EEC263}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{60A8D5C2-68C1-411C-B9E6-98AFCC5FA8ED}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{60A8D5C2-68C1-411C-B9E6-98AFCC5FA8ED}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{60A8D5C2-68C1-411C-B9E6-98AFCC5FA8ED}.Release|x86.ActiveCfg = Release|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{81AFCA4D-5267-4693-9B8B-1C3334EEC263}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

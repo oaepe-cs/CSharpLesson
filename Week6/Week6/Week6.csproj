@@ -53,6 +53,10 @@
       <Project>{60A8D5C2-68C1-411C-B9E6-98AFCC5FA8ED}</Project>
       <Name>CalculateTwoNubers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ObjectOrientedIntroduction\ObjectOrientedIntroduction.csproj">
+      <Project>{81AFCA4D-5267-4693-9B8B-1C3334EEC263}</Project>
+      <Name>ObjectOrientedIntroduction</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
