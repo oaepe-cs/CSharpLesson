@@ -20,7 +20,7 @@ namespace MyExpenses
             {
                 cboCategory.Items.Clear();
                 conn.Open();
-                string selectSql = "SELECT Category FROM tbl_Categories ORDER BY Category;";
+                string selectSql = "SELECT Category FROM tbl_Categories GROUP BY Category ORDER BY Category;";// "SELECT DISTINCT Category FROM tbl_Categories ORDER BY Category;";
                 SqlCommand cmd = new SqlCommand(selectSql, conn);
                 SqlDataReader rd = cmd.ExecuteReader();
                 while(rd.Read())
