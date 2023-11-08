@@ -40,18 +40,34 @@ namespace MyExpenses
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
+            string message = "";
+            try
             {
-                conn.Open();
-                string insertSQL = string.Format(
-                                                "INSERT INTO tbl_Categories (Category) VALUES ('{0}')", 
-                                                txtCategory.Text
-                                                );
-                SqlCommand command = new SqlCommand(insertSQL, conn);
-                command.ExecuteNonQuery();
-            }
+                using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
+                {
+                    conn.Open();
+                    string insertSQL = string.Format(
+                                                    "INSERT INTO tbl_Categories (Category) VALUES ('{0}')",
+                                                    txtCategory.Text
+                                                    );
+                    SqlCommand command = new SqlCommand(insertSQL, conn);
+                    command.ExecuteNonQuery();
+                }
 
-            ReadDataAndBindToListCategory();
+                ReadDataAndBindToListCategory();
+            }
+            catch (Exception ex)
+            {
+                message = ex.ToString();
+            }
+            finally
+            {
+                if (message != "")
+                {
+                    MessageBox.Show(message);
+                }
+            }
+            
         }
 
         private void lstCategory_KeyUp(object sender, KeyEventArgs e)

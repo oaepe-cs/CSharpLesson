@@ -15,22 +15,6 @@ namespace MyExpenses
         public frmExpenses()
         {
             InitializeComponent();
-
-            using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
-            {
-                cboCategory.Items.Clear();
-                conn.Open();
-                string selectSql = "SELECT Category FROM tbl_Categories GROUP BY Category ORDER BY Category;";// "SELECT DISTINCT Category FROM tbl_Categories ORDER BY Category;";
-                SqlCommand cmd = new SqlCommand(selectSql, conn);
-                SqlDataReader rd = cmd.ExecuteReader();
-                while(rd.Read())
-                {
-                    string item = rd["Category"].ToString();
-
-                    cboCategory.Items.Add(item);
-                }
-            }
-
         }
 
         private void frmExpenses_Load(object sender, EventArgs e)
@@ -43,18 +27,28 @@ namespace MyExpenses
         private void ReadData()
         {
             lstIncomeExpense.Items.Clear();
+            dgvIncomeExpense.Rows.Clear();
             string connectionString = MssqlDBHelper.ConnectionString;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 string createdDate = dtpCreatedDate.Value.ToString("yyyy-MM-dd");
-                string sql = "SELECT Type, Category, Amount FROM tbl_IncomesExpenses WHERE CreatedDate='" + createdDate + "';";
+                string sql = "SELECT ID, Type, Category, Amount, Note FROM tbl_IncomesExpenses WHERE CreatedDate='" + createdDate + "';";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader rd = cmd.ExecuteReader();
                 while (rd.Read())
                 {
-                    var item = rd[0].ToString() + ") " + rd[1] + "(" + rd[2].ToString() + ")";
+                    string id = rd["ID"].ToString();
+                    string type = rd["Type"].ToString();
+                    string category = rd["Category"].ToString();
+                    string amount = rd["Amount"].ToString();
+                    string note = rd["Note"].ToString();
+
+                    var item = id + ") " + type + " - " + category + "(" + amount + ")";
                     lstIncomeExpense.Items.Add(item);
+                                        
+                    string[] rowData = { id, type, category, amount, note };
+                    dgvIncomeExpense.Rows.Add(rowData);
                 }
             }
         }
@@ -102,27 +96,49 @@ namespace MyExpenses
             MessageBox.Show(lstIncomeExpense.SelectedItem.ToString());
         }
 
-        private void lstIncomeExpense_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void lstIncomeExpense_KeyUp(object sender, KeyEventArgs e)
         {
-            var selectedItem = lstIncomeExpense.SelectedItem.ToString();
+            if (e.KeyCode == Keys.Delete)
+            {
+                var selectedItem = lstIncomeExpense.SelectedItem.ToString();
+                int id = Convert.ToInt32(selectedItem.Split(')')[0]);
+                string value = lstIncomeExpense.SelectedItem.ToString();
+                DeleteData(id, value);
+            }
+        }
 
-            string connectionString = MssqlDBHelper.ConnectionString;
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            string createdDate = dtpCreatedDate.Value.ToString("yyyy-MM-dd");
-            string type = selectedItem.Split(')')[0].Trim();
+        private void DeleteData(int id, string value)
+        {
+            string message = string.Format("Do you want to delete {0}?", value);
+            DialogResult result = MessageBox.Show(message, "Income/Expense", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                string connectionString = MssqlDBHelper.ConnectionString;
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
 
-            string category = selectedItem.Split('(')[0].Split(')')[1].Trim();
+                string deleteQuery = string.Format("DELETE FROM tbl_IncomesExpenses WHERE ID={0}", id);
+                SqlCommand command = new SqlCommand(deleteQuery, conn);
+                command.ExecuteNonQuery();
 
-            string amount = selectedItem.Split('(')[1].Split(')')[0].Trim();
-            string insertQueyr = string.Format("DELETE FROM tbl_IncomesExpenses WHERE CreatedDate='{0}' AND Type='{1}' AND Category='{2}' AND Amount={3}", createdDate, type, category, amount);
+                conn.Close();
 
-            SqlCommand command = new SqlCommand(insertQueyr, conn);
-            command.ExecuteNonQuery();
+                ReadData();
+            }
+        }
 
-            conn.Close();
-
-            ReadData();
+        private void dgvIncomeExpense_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (dgvIncomeExpense.SelectedRows.Count > 0)
+            {
+                var rowData = dgvIncomeExpense.SelectedRows[0];
+                if (rowData.Cells[0].Value != null)
+                {
+                    int id = int.Parse(rowData.Cells[0].Value.ToString());
+                    string value = rowData.Cells[1].Value.ToString();
+                    DeleteData(id, value);
+                }
+            }
         }
     }
 }

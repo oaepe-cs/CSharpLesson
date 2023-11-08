@@ -1,4 +1,3 @@
-/****** Script for SelectTopNRows command from SSMS  ******/
 SELECT * FROM [DBSpring].[dbo].[tbl_IncomesExpenses]
 --SUM
 SELECT SUM(Amount) Total FROM tbl_IncomesExpenses WHERE Type='INCOME';

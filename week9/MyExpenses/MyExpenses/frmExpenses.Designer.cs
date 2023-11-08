@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtpCreatedDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.rdbExpense = new System.Windows.Forms.RadioButton();
@@ -41,6 +42,13 @@
             this.txtNote = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.lstIncomeExpense = new System.Windows.Forms.ListBox();
+            this.dgvIncomeExpense = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncomeExpense)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpCreatedDate
@@ -161,17 +169,68 @@
             this.lstIncomeExpense.FormattingEnabled = true;
             this.lstIncomeExpense.Location = new System.Drawing.Point(309, 16);
             this.lstIncomeExpense.Name = "lstIncomeExpense";
-            this.lstIncomeExpense.Size = new System.Drawing.Size(370, 264);
+            this.lstIncomeExpense.Size = new System.Drawing.Size(174, 264);
             this.lstIncomeExpense.TabIndex = 11;
             this.lstIncomeExpense.SelectedIndexChanged += new System.EventHandler(this.lstIncomeExpense_SelectedIndexChanged);
             this.lstIncomeExpense.DragDrop += new System.Windows.Forms.DragEventHandler(this.lstIncomeExpense_DragDrop);
-            this.lstIncomeExpense.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstIncomeExpense_MouseDoubleClick);
+            this.lstIncomeExpense.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lstIncomeExpense_KeyUp);
+            // 
+            // dgvIncomeExpense
+            // 
+            this.dgvIncomeExpense.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIncomeExpense.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Type,
+            this.Category,
+            this.Amount,
+            this.Note});
+            this.dgvIncomeExpense.Location = new System.Drawing.Point(507, 16);
+            this.dgvIncomeExpense.Name = "dgvIncomeExpense";
+            this.dgvIncomeExpense.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvIncomeExpense.Size = new System.Drawing.Size(669, 264);
+            this.dgvIncomeExpense.TabIndex = 12;
+            this.dgvIncomeExpense.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvIncomeExpense_KeyUp);
+            // 
+            // ID
+            // 
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // Note
+            // 
+            this.Note.HeaderText = "Note";
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            this.Note.Width = 200;
             // 
             // frmExpenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 295);
+            this.ClientSize = new System.Drawing.Size(1231, 295);
+            this.Controls.Add(this.dgvIncomeExpense);
             this.Controls.Add(this.lstIncomeExpense);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtNote);
@@ -191,6 +250,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Income/Expenses";
             this.Load += new System.EventHandler(this.frmExpenses_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncomeExpense)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +271,11 @@
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ListBox lstIncomeExpense;
+        private System.Windows.Forms.DataGridView dgvIncomeExpense;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
     }
 }
