@@ -15,15 +15,20 @@ namespace MyExpenses
         public frmCategory()
         {
             InitializeComponent();
+        }
 
+        private void frmCategory_Load(object sender, EventArgs e)
+        {
             ReadDataAndBindToListCategory();
         }
 
+        #region Method
         private void ReadDataAndBindToListCategory()
         {
-            lstCategory.Items.Clear();
+            dgvCategory.Rows.Clear();
             using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
             {
+                int _no = 1;
                 conn.Open();
                 string selectQuery = "SELECT Category FROM tbl_Categories;";
 
@@ -32,12 +37,15 @@ namespace MyExpenses
                 while (rd.Read())
                 {
                     string item = rd["Category"].ToString();
-
-                    lstCategory.Items.Add(item);
+                    string[] rowData = {_no.ToString(), item };
+                    dgvCategory.Rows.Add(rowData);
+                    _no++;
                 }
             }
         }
+        #endregion
 
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             string message = "";
@@ -69,24 +77,35 @@ namespace MyExpenses
             }
             
         }
-
-        private void lstCategory_KeyUp(object sender, KeyEventArgs e)
+                
+        private void DeleteCategory(string category)
         {
-            if (e.KeyCode == Keys.Delete && lstCategory.SelectedItem.ToString() != "")
+            string message = string.Format("Do you want to delete {0}?", category);
+            DialogResult result = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result.Equals(DialogResult.Yes))
             {
-                string message = string.Format("Do you want to delete {0}?", lstCategory.SelectedItem.ToString());
-                DialogResult result = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result.Equals(DialogResult.Yes))
+                using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
                 {
-                    using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
-                    {
-                        conn.Open();
-                        string deleteSql = string.Format("DELETE FROM tbl_Categories WHERE Category='{0}';", lstCategory.SelectedItem.ToString());
-                        SqlCommand cmd = new SqlCommand(deleteSql, conn);
-                        cmd.ExecuteNonQuery();
+                    conn.Open();
+                    string deleteSql = string.Format("DELETE FROM tbl_Categories WHERE Category='{0}';", category);
+                    SqlCommand cmd = new SqlCommand(deleteSql, conn);
+                    cmd.ExecuteNonQuery();
 
-                        ReadDataAndBindToListCategory();
-                    }
+                    ReadDataAndBindToListCategory();
+                }
+            }
+        }
+        #endregion             
+
+        private void dgvCategory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && dgvCategory.SelectedRows.Count > 0)
+            {
+                var rowData = dgvCategory.SelectedRows[0];
+                if (rowData.Cells[1].Value != null)
+                {
+                    string category = rowData.Cells[1].Value.ToString();
+                    DeleteCategory(category);
                 }
             }
         }

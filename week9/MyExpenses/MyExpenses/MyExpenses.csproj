@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common.cs" />
     <Compile Include="frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +65,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportsByDates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportsByDates.Designer.cs">
+      <DependentUpon>frmReportsByDates.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportsByDates.resx">
+      <DependentUpon>frmReportsByDates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmType.resx">
       <DependentUpon>frmType.cs</DependentUpon>

@@ -74,5 +74,36 @@ namespace MyExpenses
                 }
             }
         }
+
+        private void frmType_Load(object sender, EventArgs e)
+        {
+            dgvCategory.DataSource = GetData();
+        }
+
+        private DataTable GetData()
+        {
+            using (SqlConnection connection = new SqlConnection(MssqlDBHelper.ConnectionString))
+            {
+                // Create a new SqlDataAdapter with the SELECT query and connection
+                using (SqlDataAdapter adapter = new SqlDataAdapter("Select * From tbl_Categories", connection))
+                {
+                    // Create a new DataSet
+                    DataSet dataSet = new DataSet();
+
+                    // Open the connection
+                    connection.Open();
+
+                    // Fill the DataSet with data from the database
+                    adapter.Fill(dataSet, "YourTable");
+
+                    // Do something with the data in the DataSet
+
+                    // For example, display the data in a console
+                    return dataSet.Tables["YourTable"];
+                }
+            }
+        }
+
+        
     }
 }

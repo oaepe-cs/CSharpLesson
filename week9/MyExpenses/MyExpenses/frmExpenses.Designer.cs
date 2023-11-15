@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtpCreatedDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.rdbExpense = new System.Windows.Forms.RadioButton();
@@ -41,9 +41,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lstIncomeExpense = new System.Windows.Forms.ListBox();
             this.dgvIncomeExpense = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -164,32 +164,25 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // lstIncomeExpense
-            // 
-            this.lstIncomeExpense.FormattingEnabled = true;
-            this.lstIncomeExpense.Location = new System.Drawing.Point(309, 16);
-            this.lstIncomeExpense.Name = "lstIncomeExpense";
-            this.lstIncomeExpense.Size = new System.Drawing.Size(174, 264);
-            this.lstIncomeExpense.TabIndex = 11;
-            this.lstIncomeExpense.SelectedIndexChanged += new System.EventHandler(this.lstIncomeExpense_SelectedIndexChanged);
-            this.lstIncomeExpense.DragDrop += new System.Windows.Forms.DragEventHandler(this.lstIncomeExpense_DragDrop);
-            this.lstIncomeExpense.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lstIncomeExpense_KeyUp);
-            // 
             // dgvIncomeExpense
             // 
+            this.dgvIncomeExpense.AllowUserToAddRows = false;
+            this.dgvIncomeExpense.AllowUserToDeleteRows = false;
             this.dgvIncomeExpense.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIncomeExpense.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
+            this.No,
             this.Type,
             this.Category,
             this.Amount,
             this.Note});
-            this.dgvIncomeExpense.Location = new System.Drawing.Point(507, 16);
+            this.dgvIncomeExpense.Location = new System.Drawing.Point(298, 25);
+            this.dgvIncomeExpense.MultiSelect = false;
             this.dgvIncomeExpense.Name = "dgvIncomeExpense";
             this.dgvIncomeExpense.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIncomeExpense.Size = new System.Drawing.Size(669, 264);
+            this.dgvIncomeExpense.Size = new System.Drawing.Size(668, 264);
             this.dgvIncomeExpense.TabIndex = 12;
-            this.dgvIncomeExpense.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvIncomeExpense_KeyUp);
+            this.dgvIncomeExpense.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvIncomeExpense_KeyDown);
             // 
             // ID
             // 
@@ -197,6 +190,14 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // No
+            // 
+            this.No.Frozen = true;
+            this.No.HeaderText = "No.";
+            this.No.Name = "No";
+            this.No.Width = 50;
             // 
             // Type
             // 
@@ -212,8 +213,8 @@
             // 
             // Amount
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle2;
             this.Amount.HeaderText = "Amount";
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
@@ -229,9 +230,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1231, 295);
+            this.ClientSize = new System.Drawing.Size(977, 295);
             this.Controls.Add(this.dgvIncomeExpense);
-            this.Controls.Add(this.lstIncomeExpense);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtNote);
             this.Controls.Add(this.label5);
@@ -270,9 +270,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ListBox lstIncomeExpense;
         private System.Windows.Forms.DataGridView dgvIncomeExpense;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;

@@ -31,7 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lstCategory = new System.Windows.Forms.ListBox();
+            this.dgvCategory = new System.Windows.Forms.DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -47,34 +50,52 @@
             // 
             this.txtCategory.Location = new System.Drawing.Point(84, 15);
             this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(188, 20);
+            this.txtCategory.Size = new System.Drawing.Size(331, 20);
             this.txtCategory.TabIndex = 1;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(84, 41);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(188, 24);
+            this.btnSave.Size = new System.Drawing.Size(331, 24);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // lstCategory
+            // dgvCategory
             // 
-            this.lstCategory.FormattingEnabled = true;
-            this.lstCategory.Location = new System.Drawing.Point(26, 82);
-            this.lstCategory.Name = "lstCategory";
-            this.lstCategory.Size = new System.Drawing.Size(245, 264);
-            this.lstCategory.TabIndex = 3;
-            this.lstCategory.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lstCategory_KeyUp);
+            this.dgvCategory.AllowUserToAddRows = false;
+            this.dgvCategory.AllowUserToDeleteRows = false;
+            this.dgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.No,
+            this.Category});
+            this.dgvCategory.Location = new System.Drawing.Point(84, 71);
+            this.dgvCategory.Name = "dgvCategory";
+            this.dgvCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCategory.Size = new System.Drawing.Size(331, 273);
+            this.dgvCategory.TabIndex = 4;
+            this.dgvCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvCategory_KeyDown);
+            // 
+            // No
+            // 
+            this.No.HeaderText = "No.";
+            this.No.Name = "No";
+            this.No.Width = 50;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.Width = 200;
             // 
             // frmCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 356);
-            this.Controls.Add(this.lstCategory);
+            this.ClientSize = new System.Drawing.Size(433, 356);
+            this.Controls.Add(this.dgvCategory);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtCategory);
             this.Controls.Add(this.label1);
@@ -83,6 +104,8 @@
             this.Name = "frmCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCategory";
+            this.Load += new System.EventHandler(this.frmCategory_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,6 +116,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ListBox lstCategory;
+        private System.Windows.Forms.DataGridView dgvCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
     }
 }

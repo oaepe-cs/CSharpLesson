@@ -32,6 +32,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtType = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvCategory = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // lstType
@@ -69,17 +71,31 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Type: ";
             // 
+            // dgvCategory
+            // 
+            this.dgvCategory.AllowUserToAddRows = false;
+            this.dgvCategory.AllowUserToDeleteRows = false;
+            this.dgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategory.Location = new System.Drawing.Point(287, 71);
+            this.dgvCategory.Name = "dgvCategory";
+            this.dgvCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCategory.Size = new System.Drawing.Size(333, 264);
+            this.dgvCategory.TabIndex = 8;
+            // 
             // frmType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 346);
+            this.ClientSize = new System.Drawing.Size(659, 367);
+            this.Controls.Add(this.dgvCategory);
             this.Controls.Add(this.lstType);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtType);
             this.Controls.Add(this.label1);
             this.Name = "frmType";
             this.Text = "frmType";
+            this.Load += new System.EventHandler(this.frmType_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +107,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvCategory;
     }
 }
