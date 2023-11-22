@@ -7,8 +7,6 @@ namespace MyExpenses
 {
     public static class MssqlDBHelper
     {
-        public static string ConnectionString = "Server=.;Database=DBSpring; User ID=sa; Password=123456789cs";
-
-        
+        public static string ConnectionString = "Server=.;Database=DBSpring; User ID=sa; Password=123456789cs";        
     }
 }

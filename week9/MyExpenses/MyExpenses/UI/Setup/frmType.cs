@@ -7,17 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MyExpenses.Data;
+using MyExpenses.Service;
 
 namespace MyExpenses
 {
-    public partial class frmType : Form
+    public partial class frmType : Form, ISqlCrud
     {
         public frmType()
         {
             InitializeComponent();
             ReadDataAndBindToListType();
+
         }
 
+        private void BindToGrid(string sql)
+        {
+            DataTable dt = ReadAllData(sql);
+            dgvCategory.DataSource = dt;
+        }
 
         private void ReadDataAndBindToListType()
         {
@@ -40,18 +48,21 @@ namespace MyExpenses
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
-            {
-                conn.Open();
-                string insertSQL = string.Format(
-                                                "INSERT INTO tbl_Types (Type) VALUES ('{0}')",
-                                                txtType.Text
-                                                );
-                SqlCommand command = new SqlCommand(insertSQL, conn);
-                command.ExecuteNonQuery();
-            }
+            string insertSQL = string.Format("INSERT INTO tbl_Types (Type) VALUES ('{0}')",txtType.Text);
+            Add(insertSQL);
+            //using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
+            //{
+            //    conn.Open();
+            //    string insertSQL = string.Format(
+            //                                    "INSERT INTO tbl_Types (Type) VALUES ('{0}')",
+            //                                    txtType.Text
+            //                                    );
+            //    SqlCommand command = new SqlCommand(insertSQL, conn);
+            //    command.ExecuteNonQuery();
+            //}
 
             ReadDataAndBindToListType();
+            BindToGrid("SELECT Type FROM tbl_Types;");
         }
 
         private void lstType_KeyUp(object sender, KeyEventArgs e)
@@ -62,22 +73,26 @@ namespace MyExpenses
                 DialogResult result = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result.Equals(DialogResult.Yes))
                 {
-                    using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
-                    {
-                        conn.Open();
-                        string deleteSql = string.Format("DELETE FROM tbl_Types WHERE Type='{0}';", lstType.SelectedItem.ToString());
-                        SqlCommand cmd = new SqlCommand(deleteSql, conn);
-                        cmd.ExecuteNonQuery();
+                    string deleteSql = string.Format("DELETE FROM tbl_Types WHERE Type='{0}';", lstType.SelectedItem.ToString());
+                    Delete(deleteSql);
+                    ReadDataAndBindToListType();
+                    BindToGrid("SELECT Type FROM tbl_Types;");
+                    //using (SqlConnection conn = new SqlConnection(MssqlDBHelper.ConnectionString))
+                    //{
+                    //    conn.Open();
+                    //    string deleteSql = string.Format("DELETE FROM tbl_Types WHERE Type='{0}';", lstType.SelectedItem.ToString());
+                    //    SqlCommand cmd = new SqlCommand(deleteSql, conn);
+                    //    cmd.ExecuteNonQuery();
 
-                        ReadDataAndBindToListType();
-                    }
+                    //    ReadDataAndBindToListType();
+                    //}
                 }
             }
         }
 
         private void frmType_Load(object sender, EventArgs e)
         {
-            dgvCategory.DataSource = GetData();
+            BindToGrid("SELECT Type FROM tbl_Types;");
         }
 
         private DataTable GetData()
@@ -104,6 +119,33 @@ namespace MyExpenses
             }
         }
 
-        
+
+
+        public DataTable ReadAllData(string SelectSql)
+        {
+            return CommonCrudService.ReadAllData(SelectSql);
+        }
+
+        public void Add(string InsertSql)
+        {
+            List<string> lstTrxSqls = new List<string>();
+            lstTrxSqls.Add(InsertSql);
+            string msg = CommonCrudService.MakeTransaction(lstTrxSqls);
+            MessageBox.Show(msg);
+
+        }
+
+        public void Delete(string DeleteSql)
+        {
+            List<string> lstTrxSqls = new List<string>();
+            lstTrxSqls.Add(DeleteSql);
+            string msg = CommonCrudService.MakeTransaction(lstTrxSqls);
+            MessageBox.Show(msg);
+        }
+
+        public void Update(string UpdateSql)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

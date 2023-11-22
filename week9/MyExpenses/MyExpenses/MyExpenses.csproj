@@ -46,53 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common.cs" />
-    <Compile Include="frmCategory.cs">
+    <Compile Include="1. Helper\Common.cs" />
+    <Compile Include="2. Data\ISqlCrud.cs" />
+    <Compile Include="4. Service\CommonCrudService.cs" />
+    <Compile Include="UI\Setup\frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCategory.Designer.cs">
+    <Compile Include="UI\Setup\frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmExpenses.cs">
+    <Compile Include="UI\frmExpenses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmExpenses.Designer.cs">
+    <Compile Include="UI\frmExpenses.Designer.cs">
       <DependentUpon>frmExpenses.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="UI\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="UI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReportsByDates.cs">
+    <Compile Include="UI\Report\frmReportsByDates.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReportsByDates.Designer.cs">
+    <Compile Include="UI\Report\frmReportsByDates.Designer.cs">
       <DependentUpon>frmReportsByDates.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmType.cs">
+    <Compile Include="UI\Setup\frmType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmType.Designer.cs">
+    <Compile Include="UI\Setup\frmType.Designer.cs">
       <DependentUpon>frmType.cs</DependentUpon>
     </Compile>
-    <Compile Include="MssqlDBHelper.cs" />
+    <Compile Include="1. Helper\MssqlDBHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCategory.resx">
+    <EmbeddedResource Include="UI\Setup\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExpenses.resx">
+    <EmbeddedResource Include="UI\frmExpenses.resx">
       <DependentUpon>frmExpenses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="UI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReportsByDates.resx">
+    <EmbeddedResource Include="UI\Report\frmReportsByDates.resx">
       <DependentUpon>frmReportsByDates.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmType.resx">
+    <EmbeddedResource Include="UI\Setup\frmType.resx">
       <DependentUpon>frmType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -113,6 +115,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="3. Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
