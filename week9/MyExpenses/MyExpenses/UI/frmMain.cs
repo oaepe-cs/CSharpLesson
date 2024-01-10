@@ -60,6 +60,12 @@ namespace MyExpenses
                 ReadDataGrid(type);
             }
         }
+
+        private void cdmType_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmType();
+            frm.ShowDialog();
+        }
         #endregion
 
         #region Method
@@ -90,7 +96,7 @@ namespace MyExpenses
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToDeleteRows = false;
             dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;           
-            dgv.Location = new System.Drawing.Point(298, 25);
+            //dgv.Location = new System.Drawing.Point(298, 25);
             dgv.MultiSelect = false;
             dgv.Name = "dgv";
             dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -165,5 +171,7 @@ namespace MyExpenses
             }
         }
         #endregion
+
+        
     }
 }

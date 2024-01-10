@@ -33,9 +33,10 @@
             this.btnType = new System.Windows.Forms.Button();
             this.pnlButtonGroup = new System.Windows.Forms.Panel();
             this.pnlSummary = new System.Windows.Forms.Panel();
-            this.gbDetails = new System.Windows.Forms.GroupBox();
             this.lstSummary = new System.Windows.Forms.ListBox();
+            this.gbDetails = new System.Windows.Forms.GroupBox();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.cdmType = new System.Windows.Forms.Button();
             this.pnlButtonGroup.SuspendLayout();
             this.pnlSummary.SuspendLayout();
             this.gbDetails.SuspendLayout();
@@ -74,6 +75,7 @@
             // 
             // pnlButtonGroup
             // 
+            this.pnlButtonGroup.Controls.Add(this.cdmType);
             this.pnlButtonGroup.Controls.Add(this.btnType);
             this.pnlButtonGroup.Controls.Add(this.btnCategory);
             this.pnlButtonGroup.Controls.Add(this.btnIncomeExpense);
@@ -92,16 +94,6 @@
             this.pnlSummary.Size = new System.Drawing.Size(202, 604);
             this.pnlSummary.TabIndex = 5;
             // 
-            // gbDetails
-            // 
-            this.gbDetails.Controls.Add(this.dgv);
-            this.gbDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbDetails.Location = new System.Drawing.Point(202, 50);
-            this.gbDetails.Name = "gbDetails";
-            this.gbDetails.Size = new System.Drawing.Size(633, 604);
-            this.gbDetails.TabIndex = 6;
-            this.gbDetails.TabStop = false;
-            // 
             // lstSummary
             // 
             this.lstSummary.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -112,6 +104,16 @@
             this.lstSummary.TabIndex = 0;
             this.lstSummary.SelectedIndexChanged += new System.EventHandler(this.lstSummary_SelectedIndexChanged);
             // 
+            // gbDetails
+            // 
+            this.gbDetails.Controls.Add(this.dgv);
+            this.gbDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbDetails.Location = new System.Drawing.Point(202, 50);
+            this.gbDetails.Name = "gbDetails";
+            this.gbDetails.Size = new System.Drawing.Size(633, 604);
+            this.gbDetails.TabIndex = 6;
+            this.gbDetails.TabStop = false;
+            // 
             // dgv
             // 
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -120,6 +122,16 @@
             this.dgv.Name = "dgv";
             this.dgv.Size = new System.Drawing.Size(627, 585);
             this.dgv.TabIndex = 0;
+            // 
+            // cdmType
+            // 
+            this.cdmType.Location = new System.Drawing.Point(407, 11);
+            this.cdmType.Name = "cdmType";
+            this.cdmType.Size = new System.Drawing.Size(127, 28);
+            this.cdmType.TabIndex = 3;
+            this.cdmType.Text = "Add Type";
+            this.cdmType.UseVisualStyleBackColor = true;
+            this.cdmType.Click += new System.EventHandler(this.cdmType_Click);
             // 
             // frmMain
             // 
@@ -152,5 +164,6 @@
         private System.Windows.Forms.ListBox lstSummary;
         private System.Windows.Forms.GroupBox gbDetails;
         private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.Button cdmType;
     }
 }
